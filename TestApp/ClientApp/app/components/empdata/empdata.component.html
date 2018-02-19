@@ -4,7 +4,6 @@
 
 <p *ngIf="!employees"><em>Loading...</em></p>
 
-<form>
     <table class='table' *ngIf="employees">
         <thead>
             <tr>
@@ -21,15 +20,13 @@
         </tbody>
     </table>
     <button (click)="updateEmployees(employees)">Update</button>
-</form>
-
 <hr />
 
-<!--<form action="empdata.component.html">
+<form action="empdata.component.html">
     <input type="text" name="empName" [(ngModel)]="newEmployee.empName" />
     <input type="text" name="empDesig" [(ngModel)]="newEmployee.empDesig" />
     <button (click)="addEmployee(newEmployee)">Add Employee</button>
-</form>-->
+</form>
 
 
 <!--<nv-editable-table [table-headers]="tableHeaders"

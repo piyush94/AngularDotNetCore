@@ -41,12 +41,15 @@ export class EmployeeDataComponent {
         }, error => console.error(error));
     }
 
-    public updateEmployees(employees: Employee[]) {
+    public updateEmployees(newemployees: Employee[]) {
         console.log("here");
-        this.http.put(this.baseUrl + "api/Employees/", employees).subscribe(result => {
+        this.http.put(this.baseUrl + "api/Employees/", newemployees).subscribe(result => {
             if (result.ok) {
                 this.http.get(this.baseUrl + 'api/Employees').subscribe(result => {
-                    this.employees = result.json() as Employee[];
+                    if(result.ok){
+                        alert("Updated");
+                        this.employees = result.json() as Employee[];
+                    }
                 }, error => console.error(error));
             }
         }, error => console.error(error));
