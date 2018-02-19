@@ -38,6 +38,17 @@ export class EmployeeDataComponent {
                 //alert("employee deleted");
                 this.employees.splice(this.employees.indexOf(emp), 1);
             }
-        }, error => console.error(error))
+        }, error => console.error(error));
+    }
+
+    public updateEmployees(employees: Employee[]) {
+        console.log("here");
+        this.http.put(this.baseUrl + "api/Employees/", employees).subscribe(result => {
+            if (result.ok) {
+                this.http.get(this.baseUrl + 'api/Employees').subscribe(result => {
+                    this.employees = result.json() as Employee[];
+                }, error => console.error(error));
+            }
+        }, error => console.error(error));
     }
 }

@@ -52,6 +52,34 @@ namespace TestApp.Controllers
             return Ok(employee);
         }
 
+        // PUT: api/Employees
+        [HttpPut]
+        public async Task<IActionResult> PutEmployee([FromBody] Employee[] employees)
+        {
+            foreach(Employee emp in employees)
+            {
+                _context.Entry(emp).State = EntityState.Modified;
+            }
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                //if (!EmployeeExists(id))
+                //{
+                //    return NotFound();
+                //}
+                //else
+                //{
+                //    throw;
+                //}
+            }
+
+            return NoContent();
+        }
+
         // PUT: api/Employees/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEmployee([FromRoute] int id, [FromBody] Employee employee)
