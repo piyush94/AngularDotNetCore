@@ -9,13 +9,17 @@ import { Employee } from '../../../models/employee.model';
     templateUrl: './empdata.component.html'
 })
 export class EmployeeDataComponent {
+
+    public updating = false;
+
     public employees: Employee[];
 
     public newEmployee = new Employee(0, '', '');
 
     constructor(public http: Http, @Inject('BASE_URL') public baseUrl: string) {
         http.get(baseUrl + 'api/Employees').subscribe(result => {
-            this.employees = result.json() as Employee[];
+            if (result.ok)
+                this.employees = result.json() as Employee[];
         }, error => console.error(error));
     }
 
@@ -42,16 +46,27 @@ export class EmployeeDataComponent {
     }
 
     public updateEmployees(newemployees: Employee[]) {
+        this.updating = true;
         console.log("here");
         this.http.put(this.baseUrl + "api/Employees/", newemployees).subscribe(result => {
             if (result.ok) {
                 this.http.get(this.baseUrl + 'api/Employees').subscribe(result => {
-                    if(result.ok){
-                        alert("Updated");
+                    if (result.ok) {
+                        //alert("Updated");
                         this.employees = result.json() as Employee[];
                     }
+                    this.updating = false;
                 }, error => console.error(error));
             }
+            else
+                this.updating = false;
+        }, error => console.error(error));
+    }
+
+    public refreshEmployees() {
+        this.http.get(this.baseUrl + 'api/Employees').subscribe(result => {
+            if (result.ok)
+                this.employees = result.json() as Employee[];
         }, error => console.error(error));
     }
 }
