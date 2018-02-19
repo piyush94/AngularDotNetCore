@@ -1,0 +1,49 @@
+﻿<h1>Employee Data</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!employees"><em>Loading...</em></p>
+
+<table class='table' *ngIf="employees">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{ employee.empName }}</td>
+            <td>{{ employee.empDesig }}</td>
+            <td><button (click)="deleteEmployee(employee)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<hr />
+
+<form action="empdata.component.html">
+    <input type="text" name="empName" [(ngModel)]="newEmployee.empName" />
+    <input type="text" name="empDesig" [(ngModel)]="newEmployee.empDesig" />
+    <button (click)="addEmployee(newEmployee)">Add Employee</button>
+</form>
+
+
+<!--<nv-editable-table [table-headers]="tableHeaders"
+                   [table-rows]="tableRows"
+                   [add-button-label]="''"
+                   [edit-button-label]="''"
+                   [save-button-label]="''"
+                   [delete-button-label]="''"
+                   [add-icon]="'plus icon'"
+                   [edit-icon]="'edit icon'"
+                   [save-icon]="'checkmark icon'"
+                   [delete-icon]="'remove icon'"
+                   [add-button-class]="'ui compact icon button'"
+                   [edit-button-class]="'ui compact blue icon button'"
+                   [delete-button-class]="'ui compact red icon button'"
+                   [can-delete-rows]="true"
+                   [can-edit-rows]="false"
+                   [can-add-rows]="true"
+                   class="ui table">
+</nv-editable-table>-->
