@@ -1,7 +1,6 @@
 ﻿import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 
-import { EditableTableModule } from 'ng-editable-table/editable-table/editable-table.module';
 import { Employee } from '../../../models/employee.model';
 
 @Component({
@@ -24,7 +23,7 @@ export class EmployeeDataComponent {
     }
 
     public addEmployee(emp: Employee) {
-        console.log(emp.empName)
+        console.log(emp.empName);
         this.http.post(this.baseUrl + "api/Employees", emp).subscribe(result => {
             if (result.ok) {
                 //alert("employee added");

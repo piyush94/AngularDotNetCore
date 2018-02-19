@@ -10,7 +10,6 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { EmployeeDataComponent } from './components/empdata/empdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { EditableTableModule } from 'ng-editable-table/editable-table/editable-table.module';
 
 @NgModule({
     declarations: [
@@ -32,8 +31,7 @@ import { EditableTableModule } from 'ng-editable-table/editable-table/editable-t
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'emp-data', component: EmployeeDataComponent },
             { path: '**', redirectTo: 'home' }
-        ]),
-        EditableTableModule
+        ])
     ]
 })
 export class AppModuleShared {
