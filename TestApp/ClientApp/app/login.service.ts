@@ -35,6 +35,7 @@ export class LoginService {
 
     public logout() {
         localStorage.removeItem("currentuser");
+        this.redirectIfNotLoggedIn();
     }
 
     public redirectIfNotLoggedIn() {

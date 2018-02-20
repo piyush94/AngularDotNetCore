@@ -1,20 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { LoginService } from '../../login.service';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'home',
     templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
-    
-    constructor(public router: Router, public loginService: LoginService) {}
+export class HomeComponent {
 
-    ngOnInit(): void {
-        if (!this.loginService.isLoggedIn()) {
-            this.router.navigate(['/login']);
-        }
-    }
-    
 }
