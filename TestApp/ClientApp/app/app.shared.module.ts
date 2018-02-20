@@ -9,17 +9,22 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { EmployeeDataComponent } from './components/empdata/empdata.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './login.service';
 import { CounterComponent } from './components/counter/counter.component';
-import { EditableTableModule } from 'ng-editable-table/editable-table/editable-table.module';
 
 @NgModule({
+    providers: [
+        LoginService,
+    ],
     declarations: [
         AppComponent,
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        EmployeeDataComponent
+        EmployeeDataComponent,
+        LoginComponent
     ],
     imports: [
         CommonModule,
@@ -31,9 +36,9 @@ import { EditableTableModule } from 'ng-editable-table/editable-table/editable-t
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'emp-data', component: EmployeeDataComponent },
+            { path: 'login', component: LoginComponent },
             { path: '**', redirectTo: 'home' }
-        ]),
-        EditableTableModule
+        ])
     ]
 })
 export class AppModuleShared {
