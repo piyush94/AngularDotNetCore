@@ -24,10 +24,12 @@
   <ItemGroup>
     <None Remove="ClientApp\app\components\empdata\empdata.component.ts" />
     <None Remove="ClientApp\models\employee.model.ts" />
+    <None Remove="ClientApp\models\user.model.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\empdata\empdata.component.ts" />
+    <TypeScriptCompile Include="ClientApp\models\user.model.ts" />
     <TypeScriptCompile Include="ClientApp\models\employee.model.ts" />
   </ItemGroup>
 

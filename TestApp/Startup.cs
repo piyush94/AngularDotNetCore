@@ -27,7 +27,10 @@ namespace TestApp
 
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<EFHandler.EmployeeContext>
+                (options => options.UseSqlServer(Configuration["Data:MyDb:ConnectionString"]))
+                .AddDbContext<EFHandler.UserContext>
                 (options => options.UseSqlServer(Configuration["Data:MyDb:ConnectionString"]));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
