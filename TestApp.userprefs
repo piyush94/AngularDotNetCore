@@ -4,7 +4,7 @@
       <File FileName="TestApp/ClientApp/app/components/empdata/empdata.component.ts" Line="30" Column="14" />
       <File FileName="TestApp/ClientApp/app/components/empdata/empdata.component.html" Line="25" Column="1" />
       <File FileName="TestApp/Controllers/EmployeesController.cs" Line="62" Column="1" />
-      <File FileName="TestApp/package.json" Line="62" Column="27" />
+      <File FileName="TestApp/package.json" Line="60" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
